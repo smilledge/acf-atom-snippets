@@ -9,7 +9,7 @@ Clone this repo into your Atom packages folder and restart Atom.
 
 ## Mac
 
-`git clone https://github.com/smilledge/acf-atom-snippets.git /Users/$(whoami)/.atom/advanced-custom-fields-snippets`
+`git clone https://github.com/smilledge/acf-atom-snippets.git /Users/$(whoami)/.atom/packages/advanced-custom-fields-snippets`
 
 # Snippets
 
