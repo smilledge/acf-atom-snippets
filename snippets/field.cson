@@ -1,0 +1,120 @@
+".text.html.php":
+
+	"ACF field":
+		"prefix": "field"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<?php the_field('${1:field_name}'); ?>
+		<?php endif; ?>
+		"""
+
+	"ACF subfield":
+		"prefix": "field-sub"
+		"body": """
+		<?php if (get_sub_field('${1:field_name}')) : ?>
+			<?php the_sub_field('${1:field_name}'); ?>
+		<?php endif; ?>
+		"""
+
+	"ACF options page field":
+		"prefix": "field-option"
+		"body": """
+		<?php if (get_field('${1:field_name}', 'option')) : ?>
+			<?php the_field('${1:field_name}', 'option'); ?>
+		<?php endif; ?>
+		"""
+
+	"ACF if field":
+		"prefix": "field-if"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			$2
+		<?php endif; ?>
+		"""
+
+	"ACF if field":
+		"prefix": "field-ifelse"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			$2
+		<?php else : ?>
+			$3
+		<?php endif; ?>
+		"""
+
+	"Query posts on an ACF field":
+		"prefix": "field-query"
+		"body": """
+		<?php
+			$args = array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'posts_per_page' => 10,
+				'meta_key' => '${1:field_name}',
+				'meta_value' => '${2:field_value}'
+			);
+			$query = new WP_Query($args);
+		?>
+		<?php if($query->have_posts()) : ?>
+			<ul>
+				<?php while ($query->have_posts()) :
+					$query->the_post(); ?>
+					<li>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</li>
+				<?php endwhile; ?>
+			</ul>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+		"""
+
+	"ACF <h1> field":
+		"prefix": "field-h1"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<h1>$2</h1>
+		<?php endif; ?>
+		"""
+
+	"ACF <h2> field":
+		"prefix": "field-h2"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<h2>$2</h2>
+		<?php endif; ?>
+		"""
+
+	"ACF <h3> field":
+		"prefix": "field-h3"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<h3>$2</h3>
+		<?php endif; ?>
+		"""
+
+	"ACF <p> field":
+		"prefix": "field-p"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<p>$2</p>
+		<?php endif; ?>
+		"""
+
+	"ACF <a> field":
+		"prefix": "field-a"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<a href="<?php the_field('${1:field_name}'); ?>">$2</a>
+		<?php endif; ?>
+		"""
+
+	"Dump an ACF field for debugging":
+		"prefix": "field-dump"
+		"body": """
+		<pre>
+			<?php
+				var_dump(get_field('${1:field_name}'));
+				die();
+			?>
+		</pre>
+		"""

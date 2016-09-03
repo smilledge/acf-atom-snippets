@@ -1,0 +1,16 @@
+{
+  "name": "advanced-custom-fields-snippets",
+  "version": "1.0.0",
+  "description": "Wordpress Advanced Custom Fields snippets for Atom",
+  "author": {
+    "name": "Sam Milledge",
+    "email": "sam@sammilledge.com",
+    "url": "http://sammilledge.com"
+  },
+  "repository": "https://github.com/smilledge/acf-atom-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.169.0"
+  },
+  "dependencies": {}
+}

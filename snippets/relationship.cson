@@ -1,0 +1,26 @@
+".text.html.php":
+
+	"ACF relationship field":
+		"prefix": "field-relationship"
+		"body": """
+		<?php $posts = get_field('${1:field_name}'); ?>
+		<?php if ($posts): ?>
+			<ul>
+				<?php foreach ($posts as $post) :
+					setup_postdata($post); ?>
+					<li>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</li>
+				<?php endforeach; wp_reset_postdata(); ?>
+			</ul>
+		<?php endif; ?>
+		"""
+
+	"ACF post field":
+		"prefix": "field-post"
+		"body": """
+		<?php $post = get_field('${1:field_name}');
+			if ($post) : setup_postdata($post); ?>
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		<?php wp_reset_postdata(); endif; ?>
+		"""

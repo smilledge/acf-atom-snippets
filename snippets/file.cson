@@ -1,0 +1,29 @@
+".text.html.php":
+
+	"ACF file field":
+		"prefix": "field-file"
+		"body": """
+		<?php if (get_field('${1:field_name}')) : ?>
+			<a href="<?php the_field('${1:field_name}'); ?>" >${2:Download File}</a>
+		<?php endif; ?>
+		"""
+
+	"ACF file field (id)":
+		"prefix": "field-file-id"
+		"body": """
+		<?php if (get_field('${1:field_name}')) :
+			$attachment_id = get_field('${1:field_name}');
+			$url = wp_get_attachment_url($attachment_id);
+			$title = get_the_title($attachment_id); ?>
+			<a href="<?php echo $url; ?>" ><?php echo $title; ?></a>
+		<?php endif; ?>
+		"""
+
+	"ACF file field (object)":
+		"prefix": "field-file-object"
+		"body": """
+		<?php if (get_field('${1:field_name}')) :
+			$file = get_field('${1:field_name}'); ?>
+			<a href="<?php echo $file['url']; ?>"><?php echo $file['title']; ?></a>
+		<?php endif; ?>
+		"""
