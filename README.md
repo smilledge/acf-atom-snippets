@@ -288,6 +288,30 @@ Query a post type on a field value and loop over posts.
 <?php wp_reset_query(); ?>
 ```
 
+## Options page
+
+`acf-options`
+
+Register an ACF options page / sub page.
+
+```
+if (function_exists('acf_add_options_page')) {
+    $parent =  acf_add_options_page(array(
+        'page_title' => 'Theme Settings',
+        'menu_title' => 'Theme Settings',
+        'menu_slug' => 'theme-settings',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => 'Social Settings',
+        'menu_title' => 'Social Settings',
+        'parent_slug' => $parent['menu_slug'],
+    ));
+}
+```
+
 ## Misc
 
 `field-dump`

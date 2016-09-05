@@ -1,0 +1,21 @@
+".text.php":
+
+	"Register ACF options page":
+		"prefix": "acf-options"
+		"body": """
+		if (function_exists('acf_add_options_page')) {
+			$parent =  acf_add_options_page(array(
+				'page_title' => '${1:Theme Settings}',
+				'menu_title' => '${1:Theme Settings}',
+				'menu_slug' => '${2:theme-settings}',
+				'capability' => '${3:edit_posts}',
+				'redirect' => false
+			));
+
+			acf_add_options_sub_page(array(
+				'page_title' => '${4:Social Settings}',
+				'menu_title' => '${4:Social Settings}',
+				'parent_slug' => $parent['menu_slug'],
+			));
+		}
+		"""
