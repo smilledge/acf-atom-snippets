@@ -1,13 +1,13 @@
 Atom Snippets for Wordpress ACF (Advanced Custom Fields)
 =====
 
-This is an Atom port of my [Sublime ACF snippets](https://github.com/smilledge/acf-sublime-snippets) package. Most of the fields are the same, however the `:` separator has been changed to `-` in the Atom version.
-
 # Install
 
-Clone this repo into your Atom packages folder and restart Atom.
+From the "Install Packages" screen in Atom search for `advanced-custom-fields-snippets` and click "Install". Then restart Atom.
 
-## Mac
+Alternatively, you can manually install this package by cloning this repo into your Atom packages folder and restarting Atom.
+
+For example (if you're on macOS):
 
 `git clone https://github.com/smilledge/acf-atom-snippets.git /Users/$(whoami)/.atom/packages/advanced-custom-fields-snippets`
 
